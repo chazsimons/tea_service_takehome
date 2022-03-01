@@ -8,8 +8,8 @@ RSpec.describe 'Tea Subscription' do
     @tea2 = Tea.create!(title: 'Green Tea', description: 'Calming tea to start your day', temperature: 90, brew_time: 90)
     @tea3 = Tea.create!(title: 'Sleepy Time', description: 'Chamomille and herbs to end your day', temperature: 110, brew_time: 100)
     @subscription1 = CustomerTea.create!(customer_id: @customer1.id, tea_id: @tea1.id, price: 10, active: true, frequency: 1)
-    @subscription1 = CustomerTea.create!(customer_id: @customer1.id, tea_id: @tea2.id, price: 15, active: false, frequency: 2)
-    @subscription1 = CustomerTea.create!(customer_id: @customer2.id, tea_id: @tea3.id, price: 7, active: true, frequency: 0)
+    @subscription2 = CustomerTea.create!(customer_id: @customer1.id, tea_id: @tea2.id, price: 15, active: false, frequency: 2)
+    @subscription3 = CustomerTea.create!(customer_id: @customer2.id, tea_id: @tea3.id, price: 7, active: true, frequency: 0)
   end
 
   it 'can return a customers subscriptions' do
@@ -35,10 +35,18 @@ RSpec.describe 'Tea Subscription' do
   end
 
   it 'can create a new subscription' do
-    headers = { 'Content-Type': 'application/json' }
-    params = { tea_id: @tea2.id, price: 15, status: true, frequency: 2 }
+    params = { tea_id: @tea2.id, price: 15, active: true, frequency: 'weekly' }
 
-    post "/customers/#{@customer2.id}/teas", headers: headers, params: params
+    post "/customers/#{@customer2.id}/teas", params: params
 
+    expect(response.status).to eq(201)
+
+    new_sub = JSON.parse(response.body, symbolize_names: true)[:subscription]
+    expect(new_sub).to have_key(:active)
+    expect(new_sub[:active]).to eq(true)
+    expect(new_sub).to have_key(:customer_id)
+    expect(new_sub[:customer_id]).to eq(@customer2.id)
+    expect(new_sub).to have_key(:tea_id)
+    expect(new_sub[:tea_id]).to eq(@tea2.id)
   end
 end
