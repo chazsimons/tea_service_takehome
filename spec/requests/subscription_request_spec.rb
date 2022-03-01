@@ -25,10 +25,20 @@ RSpec.describe 'Tea Subscription' do
     expect(parsed.second[:active]).to be(false)
   end
 
+  it 'returns an error message if not found' do
+    get "/customers/#{'400'}/teas"
+
+    expect(response.status).to eq(404)
+    parsed = JSON.parse(response.body, symbolize_names: true)[:errors]
+
+    expect(parsed).to eq('No customer found with that ID')
+  end
+
   xit 'can create a new subscription' do
     headers = { 'Content-Type': 'application/json' }
-    params = { customer_id: @customer2.id, tea_id: @tea2.id, price: 15, status: true, frequency: 2 }
+    params = { tea_id: @tea2.id, price: 15, status: true, frequency: 2 }
 
-    post '/customer/'
+    post "/customers/#{@customer2.id}/teas", headers: headers, params: params
+
   end
 end
