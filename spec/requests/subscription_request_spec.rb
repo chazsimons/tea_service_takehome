@@ -49,4 +49,21 @@ RSpec.describe 'Tea Subscription' do
     expect(new_sub).to have_key(:tea_id)
     expect(new_sub[:tea_id]).to eq(@tea2.id)
   end
+
+  it 'can cancel a subscription' do
+    params = { active: false }
+
+    patch "/subscription/#{@subscription1.id}", params: params
+
+    expect(response.status).to eq(200)
+    parsed = JSON.parse(response.body, symbolize_names: true)[:subscription]
+
+    expect(parsed).to eq("You've cancelled this subscription")
+
+    get "/customers/#{@customer1.id}/teas"
+    tea_subs = JSON.parse(response.body, symbolize_names: true)[:subscriptions]
+
+    expect(tea_subs.count).to eq(2)
+    expect(tea_subs.first[:active]).to eq(false)
+  end
 end

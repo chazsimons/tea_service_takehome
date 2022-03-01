@@ -17,6 +17,15 @@ class CustomerTeasController < ApplicationController
     end
   end
 
+  def update
+    subscription = CustomerTea.find(params[:subscription_id])
+    if subscription.update({active: params[:active]})
+      render json: { subscription: "You've cancelled this subscription" }, status: 200
+    else
+      render json: { errors: "We're having trouble processing this request"}, status: 400
+    end
+  end
+
   private
 
   def subscription_params
