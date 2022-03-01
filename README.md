@@ -81,18 +81,17 @@ A backend component to a tea subscription service. This repo is designed to be c
 
 ### Built With
 
-* Ruby 2.7.2
-* Rails 5.2.6
-* PostgreSQL
-
+#### Development
 ![Atom][Atom-img]
 ![Github][GitHub-img]
 ![PostgreSQL][PostgreSQL-img]
 ![Ruby on Rails][Ruby on Rails-img]
 ![Ruby][Ruby-img]
+#### Testing
 ![Pry][Pry-img]
 ![RSPEC][RSPEC-img]
 ![Shoulda Matchers][Shoulda Matchers-img]
+#### Principles
 ![OOP][OOP-img]
 ![MVC][MVC-img]
 ![REST][REST-img]
