@@ -34,7 +34,7 @@ RSpec.describe 'Tea Subscription' do
     expect(parsed).to eq('No customer found with that ID')
   end
 
-  xit 'can create a new subscription' do
+  it 'can create a new subscription' do
     headers = { 'Content-Type': 'application/json' }
     params = { tea_id: @tea2.id, price: 15, status: true, frequency: 2 }
 
