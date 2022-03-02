@@ -22,8 +22,7 @@ class SubscriptionsController < ApplicationController
     if subscription.update({active: params[:active]})
       render json: { subscription: "You've cancelled this subscription" }, status: 200
     else
-      require "pry"; binding.pry
-      render json: { errors: "We're having trouble processing this request"}, status: 400
+      render json: { errors: supscription.errors.full_messages }, status: 400
     end
   end
 
