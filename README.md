@@ -71,7 +71,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+![Imgur](https://i.imgur.com/tma7UMq.png)
 
 A backend component to a tea subscription service. This repo is designed to be consumed by a separate front end, and does not contain any views.
 
