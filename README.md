@@ -71,6 +71,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
+### Schema
 ![Imgur](https://i.imgur.com/NastyhL.png)
 
 The backend component to a tea subscription service. This repo is designed to be consumed by a separate front end, and does not contain any views.
