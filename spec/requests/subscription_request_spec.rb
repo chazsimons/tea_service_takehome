@@ -50,6 +50,17 @@ RSpec.describe 'Tea Subscription' do
     expect(new_sub[:tea_id]).to eq(@tea2.id)
   end
 
+  it 'returns an error if all attributes are not provided' do
+    #passing params without price attribute
+    params = { tea_id: @tea2.id, active: true, frequency: 'weekly' }
+
+    post "/customers/#{@customer2.id}/teas", params: params
+
+    expect(response.status).to eq(400)
+    error = JSON.parse(response.body, symbolize_names: true)[:errors].first
+    expect(error).to eq("Price can't be blank")
+  end
+
   it 'can cancel a subscription' do
     params = { active: false }
 

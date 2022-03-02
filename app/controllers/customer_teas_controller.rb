@@ -9,11 +9,11 @@ class CustomerTeasController < ApplicationController
   end
 
   def create
-    subscription = CustomerTea.new(subscription_params)
+    subscription = CustomerTea.create(subscription_params)
     if subscription.save
       render json: { subscription: subscription }, status: 201
     else
-      render json: { errors: 'Somethings gone wrong'}, status: 400
+      render json: { errors: subscription.errors.full_messages }, status: 400
     end
   end
 
@@ -22,6 +22,7 @@ class CustomerTeasController < ApplicationController
     if subscription.update({active: params[:active]})
       render json: { subscription: "You've cancelled this subscription" }, status: 200
     else
+      require "pry"; binding.pry
       render json: { errors: "We're having trouble processing this request"}, status: 400
     end
   end
