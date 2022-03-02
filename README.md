@@ -19,13 +19,13 @@
 -->
 
 <!-- PROJECT LOGO -->
+![Imgur](https://i.imgur.com/L2uF2q3.jpg)
 <br />
 <div align="center">
 
-<h3 align="center">Take it Teasy</h3>
+<h1 align="center">Take it Teasy</h3>
 
   <p align="center">
-    project_description
     <br />
     <a href="https://github.com/chazsimons/tea_service_takehome"><strong>Explore the docs »</strong></a>
     <br />
@@ -71,9 +71,10 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+### Schema
+![Imgur](https://i.imgur.com/NastyhL.png)
 
-A backend component to a tea subscription service. This repo is designed to be consumed by a separate front end, and does not contain any views.
+The backend component to a tea subscription service. This repo is designed to be consumed by a separate front end, and does not contain any views.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
