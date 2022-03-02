@@ -22,8 +22,8 @@
 <br />
 <div align="center">
 
-<h3 align="center">Take it Teasy</h3>
-
+<h1 align="center">Take it Teasy</h3>
+![Imgur](https://i.imgur.com/L2uF2q3.jpg)
   <p align="center">
     <br />
     <a href="https://github.com/chazsimons/tea_service_takehome"><strong>Explore the docs »</strong></a>
