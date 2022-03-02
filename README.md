@@ -71,9 +71,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![Imgur](https://i.imgur.com/tma7UMq.png)
+![Imgur](https://i.imgur.com/NastyhL.png)
 
-A backend component to a tea subscription service. This repo is designed to be consumed by a separate front end, and does not contain any views.
+The backend component to a tea subscription service. This repo is designed to be consumed by a separate front end, and does not contain any views.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
