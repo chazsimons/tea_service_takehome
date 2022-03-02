@@ -25,7 +25,6 @@
 <h3 align="center">Take it Teasy</h3>
 
   <p align="center">
-    project_description
     <br />
     <a href="https://github.com/chazsimons/tea_service_takehome"><strong>Explore the docs »</strong></a>
     <br />
