@@ -7,9 +7,9 @@ RSpec.describe 'Tea Subscription' do
     @tea1 = Tea.create!(title: 'Earl Grey', description: 'Classic English Favorite', temperature: 120, brew_time: 180)
     @tea2 = Tea.create!(title: 'Green Tea', description: 'Calming tea to start your day', temperature: 90, brew_time: 90)
     @tea3 = Tea.create!(title: 'Sleepy Time', description: 'Chamomille and herbs to end your day', temperature: 110, brew_time: 100)
-    @subscription1 = CustomerTea.create!(customer_id: @customer1.id, tea_id: @tea1.id, price: 10, active: true, frequency: 1)
-    @subscription2 = CustomerTea.create!(customer_id: @customer1.id, tea_id: @tea2.id, price: 15, active: false, frequency: 2)
-    @subscription3 = CustomerTea.create!(customer_id: @customer2.id, tea_id: @tea3.id, price: 7, active: true, frequency: 0)
+    @subscription1 = Subscription.create!(customer_id: @customer1.id, tea_id: @tea1.id, price: 10, active: true, frequency: 1)
+    @subscription2 = Subscription.create!(customer_id: @customer1.id, tea_id: @tea2.id, price: 15, active: false, frequency: 2)
+    @subscription3 = Subscription.create!(customer_id: @customer2.id, tea_id: @tea3.id, price: 7, active: true, frequency: 0)
   end
 
   it 'can return a customers subscriptions' do

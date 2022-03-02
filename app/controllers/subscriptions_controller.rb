@@ -1,15 +1,15 @@
-class CustomerTeasController < ApplicationController
+class SubscriptionsController < ApplicationController
 
   def index
     if Customer.exists?(params[:id])
-      render json: { subscriptions: CustomerTea.where(customer_id: params[:id]), status: 200 }
+      render json: { subscriptions: Subscription.where(customer_id: params[:id]), status: 200 }
     else
       render json: { errors: "No customer found with that ID" }, status: 404
     end
   end
 
   def create
-    subscription = CustomerTea.create(subscription_params)
+    subscription = Subscription.create(subscription_params)
     if subscription.save
       render json: { subscription: subscription }, status: 201
     else
@@ -18,7 +18,7 @@ class CustomerTeasController < ApplicationController
   end
 
   def update
-    subscription = CustomerTea.find(params[:subscription_id])
+    subscription = Subscription.find(params[:subscription_id])
     if subscription.update({active: params[:active]})
       render json: { subscription: "You've cancelled this subscription" }, status: 200
     else
