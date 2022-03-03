@@ -118,11 +118,12 @@ If you're interested in exploring this project locally, follow these steps:
 To add a new subscription:
 
 ```ruby
-POST '/customers/:customer_id/teas'
+POST '/subscription'
 ```
 - Pass the following params to create the subscription:
 ```ruby
-params: { tea_id: #this is the id for the tea they're subscribing to,
+params: { customer_id: #customers id,
+          tea_id: #this is the id for the tea they're subscribing to,
           price: #whole dollar amount,
           active: #default value of true when creating,
           frequency: #weekly, biweekly, or monthly
