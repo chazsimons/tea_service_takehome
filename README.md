@@ -140,7 +140,7 @@ params: { active: false }
 
 To return a list of customers subscriptions:
 ```ruby
-GET '/customer/:id/teas'
+GET '/customer/:id/subscriptions'
 ```
 - Returns subscriptions as an array of hashes.
 

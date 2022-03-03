@@ -35,9 +35,9 @@ RSpec.describe 'Tea Subscription' do
   end
 
   it 'can create a new subscription' do
-    params = { tea_id: @tea2.id, price: 15, active: true, frequency: 'weekly' }
+    params = { customer_id: @customer2.id, tea_id: @tea2.id, price: 15, active: true, frequency: 'weekly' }
 
-    post "/customers/#{@customer2.id}/teas", params: params
+    post "/subscription", params: params
 
     expect(response.status).to eq(201)
 
@@ -52,9 +52,9 @@ RSpec.describe 'Tea Subscription' do
 
   it 'returns an error if all attributes are not provided' do
     #passing params without price attribute
-    params = { tea_id: @tea2.id, active: true, frequency: 'weekly' }
+    params = { customer_id: @customer2.id, tea_id: @tea2.id, active: true, frequency: 'weekly' }
 
-    post "/customers/#{@customer2.id}/teas", params: params
+    post "/subscription", params: params
 
     expect(response.status).to eq(400)
     error = JSON.parse(response.body, symbolize_names: true)[:errors].first
