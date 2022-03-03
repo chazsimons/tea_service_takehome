@@ -13,7 +13,7 @@ RSpec.describe 'Tea Subscription' do
   end
 
   it 'can return a customers subscriptions' do
-    get "/customers/#{@customer1.id}/teas"
+    get "/customers/#{@customer1.id}/subscriptions"
 
     expect(response.status).to be(200)
     parsed = JSON.parse(response.body, symbolize_names: true)[:subscriptions]
@@ -26,7 +26,7 @@ RSpec.describe 'Tea Subscription' do
   end
 
   it 'returns an error message if not found' do
-    get "/customers/#{'400'}/teas"
+    get "/customers/#{'400'}/subscriptions"
 
     expect(response.status).to eq(404)
     parsed = JSON.parse(response.body, symbolize_names: true)[:errors]
@@ -71,7 +71,7 @@ RSpec.describe 'Tea Subscription' do
 
     expect(parsed).to eq("You've cancelled this subscription")
 
-    get "/customers/#{@customer1.id}/teas"
+    get "/customers/#{@customer1.id}/subscriptions"
     tea_subs = JSON.parse(response.body, symbolize_names: true)[:subscriptions]
 
     expect(tea_subs.count).to eq(2)
