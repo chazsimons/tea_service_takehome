@@ -129,6 +129,21 @@ params: { customer_id: #customers id,
           frequency: #weekly, biweekly, or monthly
         }
 ```
+Example Response:
+```ruby
+{
+    "subscription": {
+        "id": 4,
+        "customer_id": 2,
+        "tea_id": 1,
+        "price": 15,
+        "active": true,
+        "frequency": "weekly",
+        "created_at": "2022-03-03T17:35:02.266Z",
+        "updated_at": "2022-03-03T17:35:02.266Z"
+    }
+}
+```
 
 To cancel a subscription:
 ```ruby
@@ -138,13 +153,36 @@ PATCH '/subscription/:subscription_id'
 ```ruby
 params: { active: false }
 ```
+Example Response:
+```ruby
+{
+    "subscription": "You've cancelled this subscription"
+}
+```
 
 To return a list of customers subscriptions:
 ```ruby
 GET '/customer/:id/subscriptions'
 ```
 - Returns subscriptions as an array of hashes.
-
+Example Response:
+```ruby
+{
+    "subscriptions": [
+        {
+            "id": 3,
+            "customer_id": 2,
+            "tea_id": 3,
+            "price": 7,
+            "active": true,
+            "frequency": "weekly",
+            "created_at": "2022-03-03T16:33:50.055Z",
+            "updated_at": "2022-03-03T16:33:50.055Z"
+        }
+    ],
+    "status": 200
+}
+```
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
