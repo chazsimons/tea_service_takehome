@@ -77,5 +77,4 @@ RSpec.describe 'Tea Subscription' do
     expect(tea_subs.count).to eq(2)
     expect(tea_subs.first[:active]).to eq(false)
   end
-
 end
